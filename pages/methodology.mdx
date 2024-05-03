@@ -73,3 +73,8 @@ the number of people in each sub-category. To effectively distinguish between
 categories that have similar appearance features, we utilize a two-branch architecture consisting of a density map estimation branch and a semantic segmen-
 tation branch. The density map estimation branch is responsible for the overall
 crowd count, while the semantic segmentation branch handles categorization.
+
+Except for the density map we discussed in previous model, fine-grained model has a additional semantic map in the training process. So it can give us more information about the behavior of people based on different training set.
+If you train the model with “walking towards or walking away”, then the model can guess from a image how many people are walking away etc.
+
+![](/img/fg-arch.png)
