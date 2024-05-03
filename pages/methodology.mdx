@@ -20,7 +20,10 @@ ground environment (buildings, roads, etc.). Thus, if we are able to learn the
 distribution of the background dataset, we can subtract any given sample frame
 from the background distribution to detect anomalies, namely people for our
 application. Then, we can count the number of unique objects that appear
-from this resulting subtraction.
+from this resulting subtraction. The backbone of foreground/background segmentation with background modeling was introduced in Lecture 22, as shown below:
+
+![title](/img/baseline2_method1.png)
+![title](/img/baseline2_method2.png)
 
 Given a selection of background scene images, we can learn a Gaussian Mix-
 ture Model per pixel in the image. The motivation behind this is simple. We
@@ -42,7 +45,9 @@ For both these methodologies, we will utilize a Gaussian density map for
 model training and for calculating both the loss and test error. This necessitates
 the conversion of point-labeled data into a Gaussian density map for all training
 and testing data. However, this conversion is not required for the network’s
-input image unless there is a need to compute the test error.
+input image unless there is a need to compute the test error. An example is shown below:
+
+![title](/img/density_map.png)
 
 We utilize a Multi-column Convolutional Neural Network (MCNN) architecture [3] to accurately estimate crowd count from images of arbitrary density and
 perspective. The MCNN, which allows for input images of any size or resolution,
@@ -54,7 +59,9 @@ map is computed accurately based on geometry-adaptive kernels, eliminating
 the need for knowledge of the perspective map of the input image. Our MCNN
 comprises three columns of convolutional neural networks, each with filters of
 different sizes. The input of the MCNN is the image, and its output is a crowd
-density map, the integral of which provides the overall crowd count.
+density map, the integral of which provides the overall crowd count. Details of training are given in the results section. The architecture is shown below:
+
+![title](/img/mcnn_arch.png)
 
 ## Fine-grained CNN
 We employ a fine-grained crowd counting approach [5], which differentiates
