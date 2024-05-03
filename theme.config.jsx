@@ -16,6 +16,9 @@ export default {
         titleTemplate: '%s – Crowd Detection for Shared Facilities - CS766 Project',
       }
     },
+    toc: {
+      backToTop: true
+    },
     editLink: {
       component: null
     },
