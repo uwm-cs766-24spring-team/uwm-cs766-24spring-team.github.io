@@ -35,7 +35,7 @@ gaussian blur.
 
 Finally, we create a demo video out of the result on PETS09:
 
-/* ![](/img/out_baseline2.mp4) */
+
 
 ### Advantages of the GMM method:
 • The idea is reasonable and baseline implementation is simple
@@ -69,7 +69,7 @@ This provides a clear representation of the crowd density in each image. An exam
 Additionally, we demonstrate that the generalization of this method works well with the multilayered filter sizes, as even on out of distribution test sets (e.g. PETS09), the result
 is very promising and accurate. Our demonstration video is below:
 
-/* ![](/img/out_mcnn.mp4) */
+
 
 Ultimately, MCNN performs very well, and we are happy with its usability for real-time crowd counting. It performs much faster than our background subraction implementation,
 and it is easily extendable to many use cases in a variety of shared spaces. Additionally, the use of density maps can help to mask out details in surveillance, so it helps with privacy concerns.
