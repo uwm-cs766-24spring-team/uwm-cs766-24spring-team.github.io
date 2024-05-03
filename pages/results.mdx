@@ -1,6 +1,6 @@
 # Results
 
-#### Baseline 1 (Face Detection)
+### Baseline 1 (Face Detection)
 
 The results depicted in Figure 1 are obtained from the direct method utilizing the Haar classifier. As illustrated in the figure, the Haar classifier is not an
 optimal method to detect crowds. In crowded scenes, faces are often partially
@@ -22,7 +22,7 @@ Figure 1: Samples’ results obtained from the direct method.
 
 ![](/img/face_detection.png)
 
-#### Baseline 2 (Background Subtraction)
+### Baseline 2 (Background Subtraction)
 
 Below are figures demonstrating the method on the PETS09 dataset. The first is the test image, the second is after thresholding log-likelihoods, and the third is after noise removal.
 
@@ -52,13 +52,13 @@ import { Player, ControlBar, BigPlayButton, LoadingSpinner } from 'video-react';
   <LoadingSpinner />
 </Player>
 
-#### Advantages of the GMM method:
+#### Advantages
 
 - The idea is reasonable and baseline implementation is simple
 - Mixture model is flexible, can adapt to multiple scenarios (day, night,
   weather, etc) for single scene which is very practical
 
-#### Disadvantages of the GMM method:
+#### Disadvantages
 
 - Current implementation is very slow, not necessarily faster than NN
 - Subject to tuning, so it overfits to specific scenes
@@ -67,7 +67,7 @@ import { Player, ControlBar, BigPlayButton, LoadingSpinner } from 'video-react';
   other datasets.For example, the ShanghaiTech dataset does not have background samples. Similarly, the PETS09 dataset does not have labels,
   so it is hard to directly compare methods.
 
-#### MCNN
+### MCNN
 
 We split the training-validation set into 90/10. Because the original paper does not provide specific hyperparameters, we tune this during training to minimize the validation error.
 We end up choosing Adam optimizer, training over 2000 iterations through the dataset, with 0.00001 learning rate. See the repository for more details.
@@ -97,9 +97,7 @@ is very promising and accurate. Our demonstration video is below:
 Ultimately, MCNN performs very well, and we are happy with its usability for real-time crowd counting. It performs much faster than our background subraction implementation,
 and it is easily extendable to many use cases in a variety of shared spaces. Additionally, the use of density maps can help to mask out details in surveillance, so it helps with privacy concerns.
 
-## Discussion
-
-#### Fine-Grained Crowd Counting
+### Fine-Grained Crowd Counting
 
 The current network is proficient at identifying the majority of individuals
 in the images. However, it does have a few limitations, such as occasionally
