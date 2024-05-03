@@ -1,0 +1,17 @@
+{
+    "index": "",
+    "detail": "",
+    "references": "",
+    "-- Resources": {
+        "type": "separator",
+        "title": "Resources"
+    },
+    "link-Github": {
+        "title": "Repo ↗",
+        "href": "https://github.com/uwm-cs766-24spring-team/psychic-umbrella"
+    },
+    "link-slides": {
+        "title": "Slides ↗",
+        "href": "https://docs.google.com/presentation/d/1f3eBBxXFHhWAQ_nLhjSPaG28_TkERS0A0x7eAAj_Wbk/edit?usp=sharing"
+    }
+}
