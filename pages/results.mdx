@@ -95,5 +95,13 @@ This is the expected result for Fine Grained model, the first density map tells 
 
 
 ## Conclusion
-TODO
-
+In this research, we have explored and implement a couple methods for crowd counting. Each method has its own strengths and weaknesses. 
+Our direct method or Haar cascade, is fast, but its performance is lacking. Its inability to handle occlusion adn partial face detections
+make it a nonviable ooption to crowd counting. The Background Subtraction method, though perform reasonably well, does raise some eyebrows.
+It's method of analyst is quite lacking and inaccurate to count individuals in crowds. Therefore, it is not an optimal method, which
+move us on to our third and final method: MCNN. The MCNN method demonstrated the most promising results. The density map gave us good
+visuals on crowd densities as well as accurate in its estimation. Although it does misidentify objects as people, the results are 
+still acceptable. For future work, we want to focus on implementing a fine-grained method to specifically target individuals action 
+in dense crowds in gyms and other shared facilities. This will give us more specific data to work with and provide better information. 
+In conclusion, we have tested a couple of computer vision methods on crowds counting and laid down a foundation for future research for 
+this area.
