@@ -1,6 +1,7 @@
-## Baseline 1 (Face Detection)
-A baseline method we used is a direct and traditional method called Haar cascade. We learned about Haar features 
-in CS766 Computer Vision, which is used to classify human faces. Haar cascade is the machine learning (ML)
+#### Baseline 1 (Face Detection)
+A baseline method we used is a direct and traditional method called Haar cascade. It is used to detect faces. Once we have the faces, we
+can therefore count the individuals. We learned about Haar features 
+in CS766 Computer Vision, which is used to detect human faces. Haar cascade is the machine learning (ML)
 application of Haar features. The Haar cascade efficiency, simplicity, and relevancy in the course motivate us to choose this classical method. Furthermore,
 the Haar cascade classifiers came with pre-trained models without the need for
 additional training, which is convenient and readily accessible.
@@ -13,7 +14,7 @@ nose, and mouth. If any of these features are not visible or distorted, it will 
 detect as a face. To test this method, images from the ShanghaiTech images
 datasets will be use.
 
-## Baseline 2 (Background Subtraction)
+#### Baseline 2 (Background Subtraction)
 Another baseline method that we introduce is an indirect background subtraction model for crowd counting. The motivation behind this technique is
 that for a surveillance camera, it is reasonable to assume an unchanging back-
 ground environment (buildings, roads, etc.). Thus, if we are able to learn the
@@ -37,7 +38,7 @@ subsampling and simply interpolate pixel values during evaluation. We use simple
 Finally, we use noise removal techniques in dilation and erosion to clean up the
 result and use connected components to count the number of people in a scene. 
 
-## MCNN
+#### MCNN
 In this approach, we intend to utilize both the Multi-column Convolutional
 Neural Network (MCNN) and a two-branch Fine-grained Convolutional Neural Network (CNN) to enhance our results. To date, we have completed the
 evaluation of the MCNN method.
@@ -63,7 +64,7 @@ density map, the integral of which provides the overall crowd count. Details of 
 
 ![title](/img/mcnn_arch.png)
 
-## Fine-grained CNN
+#### Fine-grained CNN
 We employ a fine-grained crowd counting approach [5], which differentiates
 a crowd into categories based on the low-level behavior attributes of individuals
 (e.g., standing/sitting or violent behavior) and then counts the number of people in each category. This approach is particularly useful in our initial target
