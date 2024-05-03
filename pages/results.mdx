@@ -26,10 +26,7 @@ Below are figures demonstrating the method on the PETS09 dataset. The first is t
 ![](/img/threshold_likelihood.png)
 ![](/img/noise_removal.png)
 
-<video width="320" height="240" controls>
-  <source src="/img/bg_sub.gif" type="image/gif" />
-Your browser does not support the video tag.
-</video>
+<img src="/img/bg_sub.gif" alt="bg_sub video result" width="560" heigh="463"/>
 
 Current quantitative results: MAE - 4.7, RMSE - 5.77. The
 GMM performs reasonably in a surveillance setting. However, the generalization of the method must be questioned. For a dataset like ShanghaiTech, where
@@ -75,10 +72,7 @@ This provides a clear representation of the crowd density in each image. An exam
 Additionally, we demonstrate that the generalization of this method works well with the multilayered filter sizes, as even on out of distribution test sets (e.g. PETS09), the result
 is very promising and accurate. Our demonstration video is below:
 
-<video width="320" height="240" controls>
-  <source src="/img/mcnn.gif" type="image/gif" />
-Your browser does not support the video tag.
-</video>
+<img src="/img/mcnn.gif" alt="MCNN video result" width="560" heigh="463"/>
 
 Ultimately, MCNN performs very well, and we are happy with its usability for real-time crowd counting. It performs much faster than our background subraction implementation,
 and it is easily extendable to many use cases in a variety of shared spaces. Additionally, the use of density maps can help to mask out details in surveillance, so it helps with privacy concerns.
