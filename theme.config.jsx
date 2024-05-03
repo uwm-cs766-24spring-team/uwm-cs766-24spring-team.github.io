@@ -15,5 +15,12 @@ export default {
       return {
         titleTemplate: '%s – CS766 Project Documentation',
       }
+    },
+    editLink: {
+      component: null
+    },
+    feedback: {
+      content: 'Question? Give us feedback →',
+      labels: 'feedback'
     }
   }
