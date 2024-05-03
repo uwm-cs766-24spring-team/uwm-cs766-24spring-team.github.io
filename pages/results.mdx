@@ -39,23 +39,20 @@ Finally, we create a demo video out of the result on PETS09:
 
 <img src="/img/bg_sub.gif" alt="bg_sub video result" width="560" heigh="463"/>
 
-### Advantages of the GMM method:
-• The idea is reasonable and baseline implementation is simple
-• Mixture model is flexible, can adapt to multiple scenarios (day, night,
+#### Advantages of the GMM method:
+* The idea is reasonable and baseline implementation is simple
+* Mixture model is flexible, can adapt to multiple scenarios (day, night,
 weather, etc) for single scene which is very practical
 
-### Disadvantages of the GMM method:
-• Current implementation is very slow, not necessarily faster than NN
-• Subject to tuning, so it overfits to specific scenes
-• GMM must be trained per scene type, it cannot generalize given data of
-a new scene
-• Since this method requires a background sample for each scene to train,
-it is difficult to compare this method directly with other methods using
-other datasets.For example, the ShanghaiTech dataset does not have
-background samples. Similarly, the PETS09 dataset does not have labels,
+#### Disadvantages of the GMM method:
+* Current implementation is very slow, not necessarily faster than NN
+* Subject to tuning, so it overfits to specific scenes
+* GMM must be trained per scene type, it cannot generalize given data of a new scene
+* Since this method requires a background sample for each scene to train, it is difficult to compare this method directly with other methods using
+other datasets.For example, the ShanghaiTech dataset does not have background samples. Similarly, the PETS09 dataset does not have labels,
 so it is hard to directly compare methods.
 
-## MCNN
+#### MCNN
 We split the training-validation set into 90/10. Because the original paper does not provide specific hyperparameters, we tune this during training to minimize the validation error.
 We end up choosing Adam optimizer, training over 2000 iterations through the dataset, with 0.00001 learning rate. See the repository for more details.
 
@@ -77,8 +74,8 @@ is very promising and accurate. Our demonstration video is below:
 Ultimately, MCNN performs very well, and we are happy with its usability for real-time crowd counting. It performs much faster than our background subraction implementation,
 and it is easily extendable to many use cases in a variety of shared spaces. Additionally, the use of density maps can help to mask out details in surveillance, so it helps with privacy concerns.
 
-# Discussion
-## Fine-Grained Crowd Counting
+### Discussion
+#### Fine-Grained Crowd Counting
 
 The current network is proficient at identifying the majority of individuals
 in the images. However, it does have a few limitations, such as occasionally
@@ -90,11 +87,11 @@ Segmentation - TODO
 
 Example Result - TODO (add image and explanation)
 
-# Conclusion
+### Conclusion
 TODO
 
-Contributions
+###Contributions
 All members contributed equally to the various components of the project. We each focused on a different approach:
-• Lao: Direct counting methods
-• William: Indirect counting methods, proofreading
-• Mondo: Deep learning methods
+* Lao: Direct counting methods
+* William: Indirect counting methods, proofreading
+* Mondo: Deep learning methods
