@@ -9,7 +9,7 @@ export default {
       toggleButton: true,
     },
     footer:{
-      text:<span>2024 © Made with ❤️ by Mondo, William and Lao </span>,
+      text:<span>2024 © Made with ❤️ by Lao, Mondo, and William</span>,
     },
     useNextSeoProps() {
       return {
