@@ -13,7 +13,7 @@ export default {
     },
     useNextSeoProps() {
       return {
-        titleTemplate: '%s – CS766 Project Documentation',
+        titleTemplate: '%s – Crowd Detection for Shared Facilities - CS766 Project',
       }
     },
     editLink: {
