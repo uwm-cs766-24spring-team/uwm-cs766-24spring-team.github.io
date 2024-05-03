@@ -1,18 +1,45 @@
+# Datasets
+
 We identified and collected three public crowd-counting datasets.
 These datasets serve as the foundation for training and testing our methods.
 More details about these datasets can be found in "Datasets" under "Resources."
 We conducted extensive tests on various models, we also developed a new method based
 on fact we can utilize background image as complementary data.
 
-We have successfully procured four distinct datasets, each exhibiting unique characteristics:  
+import { Callout, Tabs } from 'nextra/components';
+import { Image } from 'next/image';
 
-#### ShanghaiTech[3]
-A large dataset that includes 1198 images with about 330,000 heads annotated.  
+<Callout type="info">
+  All datasets are available for download from the the Google Drive link we
+  provided on the sidebar.
+</Callout>
 
-#### PETS 2009[4]  
-The datasets comprise multi-sensor sequences containing crowd scenarios with increasing scene complexity. 
-This dataset comprises data collected at various times, each associated with its corresponding background conditions.  
+We have successfully procured four distinct datasets, each exhibiting unique characteristics:
 
-#### Fine-Grained[5]
-This dataset is specifically designed for fine-grained crowd counting and includes four distinct scenarios:
-Towards/Away, Standing/Sitting, Waiting/Not Waiting, and Violent/Non-violent.
+<Tabs items={['ShanghaiTech', 'PETS 2009', 'Fine-Grained']}>
+  <Tabs.Tab>
+    A large dataset that includes 1198 images with about 330,000 heads
+    annotated.
+
+    ![ShanghaiTech](/img/datasets/sh/IMG_1.jpg)
+    ![ShanghaiTech](/img/datasets/sh/IMG_2.jpg)
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+    The datasets comprise multi-sensor sequences containing crowd scenarios with
+    increasing scene complexity. This dataset comprises data collected at
+    various times, each associated with its corresponding background conditions.
+
+    ![PETS 2009](/img/datasets/pets/frame_0000.jpg)
+
+  </Tabs.Tab>
+  <Tabs.Tab>
+    This dataset is specifically designed for fine-grained crowd counting and
+    includes four distinct scenarios: Towards/Away, Standing/Sitting,
+    Waiting/Not Waiting, and Violent/Non-violent.
+
+    ![Fine-Grained](/img/datasets/fg/001.jpg)
+    {/* ![Fine-Grained](/img/datasets/fg/vidf1_33_000_f001.png) */}
+
+  </Tabs.Tab>
+</Tabs>

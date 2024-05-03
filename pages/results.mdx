@@ -1,4 +1,7 @@
-#### Baseline 1 (Face Detection)
+# Results
+
+### Baseline 1 (Face Detection)
+
 The results depicted in Figure 1 are obtained from the direct method utilizing the Haar classifier. As illustrated in the figure, the Haar classifier is not an
 optimal method to detect crowds. In crowded scenes, faces are often partially
 obscured by other individuals or objects, making full face detection quite challenging. Out of these densely crowded images, it was only able to detect a few
@@ -15,11 +18,12 @@ profile detection, etc. It would’ve detected even more people with its versati
 if other models were also used. However, its accuracy in crowd scenes will still
 be limited due to its inability to handle occlusions.
 
-Figure 1: Samples’ results obtained from the direct method.
+Samples’ results obtained from the direct method:
 
 ![](/img/face_detection.png)
 
-#### Baseline 2 (Background Subtraction)
+### Baseline 2 (Background Subtraction)
+
 Below are figures demonstrating the method on the PETS09 dataset. The first is the test image, the second is after thresholding log-likelihoods, and the third is after noise removal.
 
 ![](/img/S0_Regular_Flow_Time_13-57_View_001_frame_0018.png)
@@ -37,22 +41,34 @@ gaussian blur.
 
 Finally, we create a demo video out of the result on PETS09:
 
-<img src="/img/bg_sub.gif" alt="bg_sub video result" width="560" heigh="463"/>
+{/* <img src="/img/bg_sub.gif" alt="bg_sub video result" width="560" heigh="463"/> */}
 
-#### Advantages of the GMM method:
-* The idea is reasonable and baseline implementation is simple
-* Mixture model is flexible, can adapt to multiple scenarios (day, night,
-weather, etc) for single scene which is very practical
+import { Player, ControlBar, BigPlayButton, LoadingSpinner } from 'video-react';
 
-#### Disadvantages of the GMM method:
-* Current implementation is very slow, not necessarily faster than NN
-* Subject to tuning, so it overfits to specific scenes
-* GMM must be trained per scene type, it cannot generalize given data of a new scene
-* Since this method requires a background sample for each scene to train, it is difficult to compare this method directly with other methods using
-other datasets.For example, the ShanghaiTech dataset does not have background samples. Similarly, the PETS09 dataset does not have labels,
-so it is hard to directly compare methods.
+<Player playsInline poster="/vid/poster/out_baseline2.png">
+  <source src="/vid/out_baseline2.mp4" />
+  <BigPlayButton position="center" />
+  <ControlBar autoHide={false} />
+  <LoadingSpinner />
+</Player>
 
-#### MCNN
+#### Advantages
+
+- The idea is reasonable and baseline implementation is simple
+- Mixture model is flexible, can adapt to multiple scenarios (day, night,
+  weather, etc) for single scene which is very practical
+
+#### Disadvantages
+
+- Current implementation is very slow, not necessarily faster than NN
+- Subject to tuning, so it overfits to specific scenes
+- GMM must be trained per scene type, it cannot generalize given data of a new scene
+- Since this method requires a background sample for each scene to train, it is difficult to compare this method directly with other methods using
+  other datasets.For example, the ShanghaiTech dataset does not have background samples. Similarly, the PETS09 dataset does not have labels,
+  so it is hard to directly compare methods.
+
+### MCNN
+
 We split the training-validation set into 90/10. Because the original paper does not provide specific hyperparameters, we tune this during training to minimize the validation error.
 We end up choosing Adam optimizer, training over 2000 iterations through the dataset, with 0.00001 learning rate. See the repository for more details.
 
@@ -69,24 +85,25 @@ This provides a clear representation of the crowd density in each image. An exam
 Additionally, we demonstrate that the generalization of this method works well with the multilayered filter sizes, as even on out of distribution test sets (e.g. PETS09), the result
 is very promising and accurate. Our demonstration video is below:
 
-<img src="/img/mcnn.gif" alt="MCNN video result" width="560" heigh="463"/>
+{/* <img src="/img/mcnn.gif" alt="MCNN video result" width="560" heigh="463"/> */}
+
+<Player playsInline poster="/vid/poster/out_mcnn.png">
+  <source src="/vid/out_mcnn.mp4" />
+  <BigPlayButton position="center" />
+  <ControlBar autoHide={false} />
+  <LoadingSpinner />
+</Player>
 
 Ultimately, MCNN performs very well, and we are happy with its usability for real-time crowd counting. It performs much faster than our background subraction implementation,
 and it is easily extendable to many use cases in a variety of shared spaces. Additionally, the use of density maps can help to mask out details in surveillance, so it helps with privacy concerns.
 
-## Discussion
-#### Fine-Grained Crowd Counting
+### Fine-Grained Crowd Counting
 
 The current network is proficient at identifying the majority of individuals
 in the images. However, it does have a few limitations, such as occasionally
 misidentifying non-human objects as people. Despite these minor issues, the
 overall performance is satisfactory. However, it falls short in discerning whether
 individuals are waiting for gym equipment. To address this, we plan to implement the fine-grained, two-branch method in the future.
-
-Except for the density map we discussed in previous model, fine-grained model has a additional semantic map in the training process. So it can give us more information about the behavior of people based on different training set.
-If you train the model with “walking towards or walking away”, then the model can guess from a image how many people are walking away etc.
-
-![](/img/fg-arch.png)
 
 This is the expected result for Fine Grained model, the first density map tells us how many people are walking away, and the second one is for walking towards:
 
