@@ -30,8 +30,8 @@ from this resulting subtraction. The backbone of foreground/background segmentat
 ![title](/img/baseline2_method1.png)
 ![title](/img/baseline2_method2.png)
 
-Given a selection of background scene images, we can learn a Gaussian Mix-
-ture Model per pixel in the image. The motivation behind this is simple. We
+Given a selection of background scene images, we can learn a Gaussian Mixture Model per pixel in the image.
+The motivation behind this is simple. We
 expect a range of image scenarios (day, night, weather), and this will lead to
 a multi-modal distribution across all pixel values. For our implementation, we
 convert images to grayscale, so each pixel can have value 0-255. During evaluation, if a person is in the frame, the pixel value colors corresponding to the
